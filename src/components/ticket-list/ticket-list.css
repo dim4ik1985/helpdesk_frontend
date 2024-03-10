@@ -1,0 +1,96 @@
+.tickets {
+  max-height: 80px;
+  margin: 80px 10px 0 10px;
+}
+
+.tickets .container {
+  height: inherit;
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid black;
+  padding: 10px;
+  background: #fdfdfd;
+  margin: -1px 0 0 0;
+}
+
+.ticket-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ticket-item li {
+  display: inline-block;
+}
+
+.ticket-item li a{
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn {
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 50px;
+}
+
+li.item-id {
+  display: none;
+}
+
+.btn.status {
+  margin-right: 20px;
+  flex-basis: 5%;
+}
+
+.btn.status[data-status="false"] {
+  margin-right: 20px;
+  flex-basis: 5%;
+}
+
+.btn.status[data-status="true"] {
+  background: url("./img/icons/icons8-done-50.svg") 50%/70% no-repeat;
+}
+
+.item-el.name {
+  flex-basis: 65%;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.item-el.created {
+  flex-basis: 20%;
+  margin-right: 20px;
+}
+
+.btn.edit {
+  flex-basis: 5%;
+  margin-right: 10px;
+  background: url("./img/icons/icons8-pensal-48.png") 50%/70% no-repeat;
+}
+
+.btn.delete {
+  flex-basis: 5%;
+  background: url("./img/icons/icons8-крестик-78.png") 50%/cover no-repeat;
+}
+
+
+.ticket-description {
+  margin: 20px 0 20px 55px;
+  position: absolute;
+  top: -100%;
+  width: 50%;
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+  transition: max-height .5s, opacity .5s;
+}
+
+.ticket-description.open {
+  position: relative;
+  opacity: 1;
+  max-height: 500px;
+  transition: max-height .5s, opacity .5s;
+}
+
+
