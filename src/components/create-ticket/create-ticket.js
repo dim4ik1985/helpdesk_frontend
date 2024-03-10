@@ -119,15 +119,14 @@ export class CreateTicket {
         );
         this._popup = popupEditElement;
         this._formElements = this._popup.querySelector(".ticket-form");
-        this._formElements.addEventListener("submit", async (e) => {
+        this._formElements.addEventListener("submit", async () => {
           const data = new FormData(this._formElements);
           const url = `http://localhost:7070?method=editTicket&id=${id}`;
           const response = await fetch(url, {
             method: "PATCH",
             body: data,
           });
-
-          const result = await response.json();
+          await response.json();
         });
       } else {
         console.log("Error: " + response.status);
@@ -160,7 +159,7 @@ export class CreateTicket {
   }
 
   addTicket() {
-    this._formElements.addEventListener("submit", async (e) => {
+    this._formElements.addEventListener("submit", async () => {
       const data = new FormData(this._formElements);
       const url = "http://localhost:7070?method=createTicket";
       const response = await fetch(url, {

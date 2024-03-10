@@ -8,7 +8,6 @@ export class TicketList {
     this._element = element;
     this._tickets = undefined;
     this._descriptionItemClick = undefined;
-    this._ticketList = undefined;
 
     this.createTicketList = this.createTicketList.bind(this);
     this.showTicketList = this.showTicketList.bind(this);
@@ -16,7 +15,6 @@ export class TicketList {
     this.descriptionTicket = this.descriptionTicket.bind(this);
     this.deleteTicket = this.deleteTicket.bind(this);
     this.statusTicket = this.statusTicket.bind(this);
-    this.editTicket = this.editTicket.bind(this);
   }
 
   createTicketList() {
@@ -102,11 +100,6 @@ export class TicketList {
     })();
   }
 
-  editTicket(elem) {
-    const parent = elem.closest(".ticket");
-    const id = parent.querySelector(".item-id").dataset.id;
-    const url = `http://localhost:7070?method=editTicket&id=${id}`;
-  }
   descriptionTicket(elem) {
     const parent = elem.closest(".ticket");
     const id = parent.querySelector(".item-id").dataset.id;
@@ -140,10 +133,9 @@ export class TicketList {
     const url = `http://localhost:7070?method=deleteById&id=${id}`;
 
     (async () => {
-      const response = await fetch(url, {
+      await fetch(url, {
         method: "DELETE",
       });
-
       item.closest(".ticket").remove();
     })();
   }
